@@ -6,8 +6,10 @@ const router = express.Router();
 router.use('/rooms', roomsApiRoutes);
 
 
-
-
+router.use((error, req, res, next) => { 
+   console.log('ouaip y a une erreur');
+   res.json({message : error, status: 'error'}); 
+});
 // Si une route n'existe pas, erreur 404
 router.route("*").all((req, res) => { res.status(404).send(); });
 

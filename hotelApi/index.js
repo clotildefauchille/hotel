@@ -12,9 +12,6 @@ const app = express();
 // l'option extended true permet de parser les objets
 app.use(express.urlencoded({ extended: true }));
 
-
-
-
 //--------------------------------------------------------------------
 //      Chargement des routes liées à l'API
 //--------------------------------------------------------------------
