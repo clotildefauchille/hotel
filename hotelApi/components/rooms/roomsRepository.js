@@ -7,7 +7,7 @@ export default class roomsRepository {
         console.log("hellllo", idRoom);
         console.log("process.env", process.env.DB_NAME)
 
-        const result = await connexion.execute(`SELECT * FROM room where id=${idRoom};`);
+        const result = await connexion.execute(`SELECT * FROM room where id=?;`, [idRoom]);
         console.log("result", result);
         return result;
     }
