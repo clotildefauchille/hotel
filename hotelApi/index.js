@@ -7,9 +7,9 @@ dotenv.config({ path: process.env.NODE_ENV ? `.env.${process.env.NODE_ENV.trim()
 
 const app = express();
 
-
 // permet de parser le contenu du body des requêtes,
 // l'option extended true permet de parser les objets
+//receptionne les formulaire (x-form-urlencoded)
 app.use(express.urlencoded({ extended: true }));
 
 //--------------------------------------------------------------------
