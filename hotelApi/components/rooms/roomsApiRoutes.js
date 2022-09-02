@@ -5,11 +5,10 @@ const roomApi= new Room();
 
 
 router.get('/:id', roomApi.getOneRoom);
+//TODO gestion erreur si mauvais id hotel
 router.get('/', roomApi.getAllRooms);
-//TODO verifier + ajouter cle etrangere
 router.post('/', roomApi.createOneRoom);
 router.delete('/:id', roomApi.deleteOneRoom);
-//TODIO tester et creer
-router.put('/', roomApi.updateOneRoom);
+router.put('/:id', roomApi.updateOneRoom);
 
 export default router;

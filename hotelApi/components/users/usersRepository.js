@@ -39,11 +39,15 @@ export default class userRepository {
     }
   }
   async findByUuid(uuid) {
+    let result;
     try {
-      return await connexion.execute(`SELECT * from user WHERE uuid=?`, [uuid]);
+      [result] = await connexion.execute(`SELECT * from user WHERE uuid=?`, [uuid]);
     } catch (error) {
-      console.log(error);
-      throw error;
+      throw new ErrorApi(error.message, 500);
     }
+
+    if(result.length === 0) {
+      throw new ErrorApi(`Vous n'êtes pas autorisé`,401);
+    }    
   }
 }

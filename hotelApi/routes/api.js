@@ -12,7 +12,7 @@ const router = express.Router();
 router.use(express.json());
 
 // Gestion des droits API
-router.use('/', serviceAuth.getAuthByApiKey);
+// router.use('/', serviceAuth.getAuthByApiKey);
 
 // ... chargement de vos prochaines routes ici
 router.use('/users', usersApiRoutes);
