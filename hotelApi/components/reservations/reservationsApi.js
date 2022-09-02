@@ -27,9 +27,11 @@ export default class reservation {
        * @apiError {json} Room Not Found
        * @apiErrorExample {json} Error-Response:
        *     HTTP/1.1 404 Not Found
-       *     {
-       *       "error": "Reservation Not Found."
-       *     }
+       *   {
+                "message": "la réservation 1 n'existe pas",
+                "code": 404,
+                "status": "error"
+            }
        *
        * @apiSuccess {json} data reservation.
        * @apiSuccessExample {json} Success-Response:
@@ -110,7 +112,7 @@ export default class reservation {
       }
     }
     /**
-       * @api {get} /reservations/?start=&finished=&page=&limit= get All Reservations informations
+       * @api {get} /reservations/?start=&finished=&page=&limit= get All Reservations informations relate to one period of time
        * @apiName getAllReservations
        * @apiGroup Reservation
        * 
@@ -130,97 +132,209 @@ export default class reservation {
        *     HTTP/1.1 400 Bad Request
        *     {"error":"Bad Request"}
        *
-       * @apiError {json} Reservation Not Found
+       * @apiError {json} Bad date's format in param
        * @apiErrorExample {json} Error-Response:
-       *     HTTP/1.1 404 Not Found
-       *     {
-       *       "error": "Reservation Not Found."
-       *     }
+       *     HTTP/1.1 400 Not Found
+                {
+                "message": "attention les parametres de date doivent etre au format YYYY-MM-DD",
+                "code": 400,
+                "status": "error"
+            }
        *
        * @apiSuccess {json} data reservation.
        * @apiSuccessExample {json} Success-Response:
        *     HTTP/1.1 200 OK
-            {
+        {
     "records": [
-            {
-                "id": 1,
-                "start": "2022-05-07T10:02:53.000Z",
-                "finished": "2022-05-13T10:02:53.000Z",
-                "total": "352.78",
-                "customer_id": 65
-            },
-            {
-                "id": 102,
-                "start": "2022-05-06T22:00:00.000Z",
-                "finished": "2022-05-12T22:00:00.000Z",
-                "total": "367",
-                "customer_id": 4
-            },
-            {
-                "id": 103,
-                "start": "2022-05-06T22:00:00.000Z",
-                "finished": "2022-05-12T22:00:00.000Z",
-                "total": "367",
-                "customer_id": 4
-            },
-            {
-                "id": 104,
-                "start": "2022-05-06T22:00:00.000Z",
-                "finished": "2022-05-12T22:00:00.000Z",
-                "total": "367",
-                "customer_id": 4
-            },
-            {
-                "id": 105,
-                "start": "2022-05-06T22:00:00.000Z",
-                "finished": "2022-05-12T22:00:00.000Z",
-                "total": "367",
-                "customer_id": 4
-            },
-            {
-                "id": 106,
-                "start": "2022-05-06T22:00:00.000Z",
-                "finished": "2022-05-12T22:00:00.000Z",
-                "total": "367",
-                "customer_id": 4
-            },
-            {
-                "id": 107,
-                "start": "2022-05-06T22:00:00.000Z",
-                "finished": "2022-05-12T22:00:00.000Z",
-                "total": "367",
-                "customer_id": 4
-            },
-            {
-                "id": 108,
-                "start": "2022-05-06T22:00:00.000Z",
-                "finished": "2022-05-12T22:00:00.000Z",
-                "total": "367",
-                "customer_id": 4
-            },
-            {
-                "id": 109,
-                "start": "2022-05-06T22:00:00.000Z",
-                "finished": "2022-05-12T22:00:00.000Z",
-                "total": "367",
-                "customer_id": 4
-            },
-            {
-                "id": 110,
-                "start": "2022-05-06T22:00:00.000Z",
-                "finished": "2022-05-12T22:00:00.000Z",
-                "total": "367",
-                "customer_id": 4
+                {
+                    "id": 22,
+                    "start": "2021-10-12T13:49:37.000Z",
+                    "finished": "2021-10-16T13:49:37.000Z",
+                    "total": "67",
+                    "customer_id": 7,
+                    "id_room": 453,
+                    "id_reservation": 2,
+                    "category": "single",
+                    "price": "59e",
+                    "breakfastNumber": 1,
+                    "option": "strongBox",
+                    "hostel_id": 22,
+                    "name": "hôtel Merci",
+                    "adress": "2410 Spenser Place",
+                    "zipCode": 13000,
+                    "totalRoomNumber": 17,
+                    "type": "3 étoiles",
+                    "city": "Marseille"
+                },
+                {
+                    "id": 16,
+                    "start": "2021-10-05T18:12:57.000Z",
+                    "finished": "2021-10-14T18:12:57.000Z",
+                    "total": "548.47",
+                    "customer_id": 63,
+                    "id_room": 168,
+                    "id_reservation": 8,
+                    "category": "double",
+                    "price": "69e",
+                    "breakfastNumber": 2,
+                    "option": "travelCot",
+                    "hostel_id": 16,
+                    "name": "hôtel Kory",
+                    "adress": "4420 Pond Trail",
+                    "zipCode": 31000,
+                    "totalRoomNumber": 31,
+                    "type": "4 étoiles",
+                    "city": "Toulouse"
+                },
+                {
+                    "id": 7,
+                    "start": "2021-10-14T02:46:26.000Z",
+                    "finished": "2021-10-24T02:46:26.000Z",
+                    "total": "588.92",
+                    "customer_id": 23,
+                    "id_room": 22,
+                    "id_reservation": 17,
+                    "category": "double",
+                    "price": "69e",
+                    "breakfastNumber": 1,
+                    "option": "travelCot",
+                    "hostel_id": 7,
+                    "name": "hôtel Casper",
+                    "adress": "70802 Hintze Avenue",
+                    "zipCode": 31000,
+                    "totalRoomNumber": 30,
+                    "type": "3 étoiles",
+                    "city": "Toulouse"
+                },
+                {
+                    "id": 9,
+                    "start": "2021-10-14T02:46:26.000Z",
+                    "finished": "2021-10-24T02:46:26.000Z",
+                    "total": "588.92",
+                    "customer_id": 23,
+                    "id_room": 80,
+                    "id_reservation": 17,
+                    "category": "single",
+                    "price": "59e",
+                    "breakfastNumber": 2,
+                    "option": "strongBox",
+                    "hostel_id": 9,
+                    "name": "hôtel Ernestus",
+                    "adress": "82 Crest Line Court",
+                    "zipCode": 59000,
+                    "totalRoomNumber": 42,
+                    "type": "4 étoiles",
+                    "city": "Lille"
+                },
+                {
+                    "id": 28,
+                    "start": "2021-10-14T21:22:16.000Z",
+                    "finished": "2021-10-23T21:22:16.000Z",
+                    "total": "538.77",
+                    "customer_id": 80,
+                    "id_room": 320,
+                    "id_reservation": 24,
+                    "category": "single",
+                    "price": "59e",
+                    "breakfastNumber": 2,
+                    "option": "travelCot",
+                    "hostel_id": 28,
+                    "name": "hôtel Jemmie",
+                    "adress": "1723 Manley Center",
+                    "zipCode": 31000,
+                    "totalRoomNumber": 39,
+                    "type": "3 étoiles",
+                    "city": "Toulouse"
+                },
+                {
+                    "id": 21,
+                    "start": "2021-10-10T04:04:17.000Z",
+                    "finished": "2021-10-20T04:04:17.000Z",
+                    "total": "586.27",
+                    "customer_id": 38,
+                    "id_room": 312,
+                    "id_reservation": 59,
+                    "category": "single",
+                    "price": "59e",
+                    "breakfastNumber": 2,
+                    "option": "strongBox",
+                    "hostel_id": 21,
+                    "name": "hôtel Dyane",
+                    "adress": "9166 Cambridge Drive",
+                    "zipCode": 29200,
+                    "totalRoomNumber": 37,
+                    "type": "4 étoiles",
+                    "city": "Brest"
+                },
+                {
+                    "id": 16,
+                    "start": "2021-10-13T08:44:30.000Z",
+                    "finished": "2021-10-23T08:44:30.000Z",
+                    "total": "608.13",
+                    "customer_id": 9,
+                    "id_room": 84,
+                    "id_reservation": 63,
+                    "category": "double",
+                    "price": "69e",
+                    "breakfastNumber": 2,
+                    "option": "travelCot",
+                    "hostel_id": 16,
+                    "name": "hôtel Kory",
+                    "adress": "4420 Pond Trail",
+                    "zipCode": 31000,
+                    "totalRoomNumber": 31,
+                    "type": "4 étoiles",
+                    "city": "Toulouse"
+                },
+                {
+                    "id": 25,
+                    "start": "2021-10-13T08:44:30.000Z",
+                    "finished": "2021-10-23T08:44:30.000Z",
+                    "total": "608.13",
+                    "customer_id": 9,
+                    "id_room": 174,
+                    "id_reservation": 63,
+                    "category": "double",
+                    "price": "69e",
+                    "breakfastNumber": 2,
+                    "option": "smoker",
+                    "hostel_id": 25,
+                    "name": "hôtel Glendon",
+                    "adress": "41424 Mesta Center",
+                    "zipCode": 59000,
+                    "totalRoomNumber": 42,
+                    "type": "4 étoiles",
+                    "city": "Lille"
+                },
+                {
+                    "id": 19,
+                    "start": "2021-09-27T10:07:39.000Z",
+                    "finished": "2021-10-13T10:07:39.000Z",
+                    "total": "941.38",
+                    "customer_id": 64,
+                    "id_room": 94,
+                    "id_reservation": 90,
+                    "category": "double",
+                    "price": "69e",
+                    "breakfastNumber": 2,
+                    "option": "smoker",
+                    "hostel_id": 19,
+                    "name": "hôtel Brooks",
+                    "adress": "5326 Becker Hill",
+                    "zipCode": 75000,
+                    "totalRoomNumber": 28,
+                    "type": "4 étoiles",
+                    "city": "Paris"
+                }
+            ],
+            "nbRecords": 7,
+            "page": {
+                "current": 1,
+                "previous": null,
+                "next": null,
+                "last": 1
             }
-        ],
-        "nbRecords": 17,
-        "page": {
-            "current": 1,
-            "previous": null,
-            "next": 2,
-            "last": 2
-        }
-    }      
+        }     
        */
     async getAllReservations(req, res, next) {
     try {
@@ -229,8 +343,8 @@ export default class reservation {
         
         const regex = /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/;
         const isADate = regex.test(start) && regex.test(finished);
-        if(!isADate) {
-            throw new ErrorApi(`attention les parametre de date doivent etre au format YYYY-MM_DD`);
+        if(!isADate&&(start!==null)&&(finished!==null)) {
+            throw new ErrorApi(`attention les parametres de date doivent etre au format YYYY-MM-DD`);
         }
         const page = req.query.page || 1;
         const limit = req.query.limit || 10;
@@ -330,8 +444,8 @@ export default class reservation {
           */
     async deleteOneReservation(req, res, next){
         try {
-            let currentReservation = await reservationRepository.getOneReservation(req.params.id);
-            if (currentReservation) {
+            let currentReservation = await reservationRepository.getOneReservationWithRoomsAndHostelAndCustomerInfo(req.params.id);
+            if (currentReservation.result.length > 0) {
                 await reservationRepository.deleteOneReservation(req.params.id);
                 res.json({ message: "Reservation deleted successfully", status: 200 });
             } else {
@@ -384,10 +498,10 @@ export default class reservation {
             const { id } = req.params;
             console.log("id", id);
 
-            let currentReservation = await reservationRepository.getOneReservation(id);
-            if (currentReservation) {
-                console.log("currentReservation", currentReservation);
-                const newReservation = { ...currentReservation, ...req.body };
+            let currentReservation = await reservationRepository.getOneReservationWithRoomsAndHostelAndCustomerInfo(id);
+            
+            if (currentReservation.result.length>0) {
+                const newReservation = { ...currentReservation.result[0], ...req.body };
                 console.log("newReservation", newReservation);
                 await reservationRepository.updateOneReservation(id, newReservation);
                 res.json({ message: "reservation updated", status: 200 });

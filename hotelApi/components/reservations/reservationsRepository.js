@@ -42,7 +42,7 @@ export default class reservationRepository {
                 console.log("where", where)
                 data.push(start, start, finished, finished, start, finished);
             }
-            const [records] = await connexion.execute(`SELECT * FROM reservation ${where} LIMIT ${limit} OFFSET ${(page - 1) * limit};`, data)
+            const [records] = await connexion.execute(`SELECT * FROM reservation INNER JOIN reservation_room ON reservation_room.id_reservation = reservation.id INNER JOIN room ON room.id=reservation_room.id_room INNER JOIN hostel ON hostel.id=room.hostel_id ${where} LIMIT ${limit} OFFSET ${(page - 1) * limit};`, data)
             console.log("resuuult", records);
             // const [records] = await connexion.execute(`SELECT * FROM reservation ${where} LIMIT ${limit} OFFSET ${(page - 1) * limit}`, data);
             // if (records.length === 0){
