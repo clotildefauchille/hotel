@@ -7,7 +7,7 @@ export default class customerRepository {
     async getOneCustomerById(idCustomer){
         try {
             console.log(idCustomer);
-            const [result] = await connexion.execute('SELECT * FROM customer WHERE id=?', [idCustomer]);
+            const [result] = await connexion.execute('SELECT * FRO customer WHERE id=?', [idCustomer]);
             console.log(result);
             if(result.length === 0){
                 throw new ErrorApi(`il n'existe pas de client ac l'id ${idCustomer}`)
@@ -36,7 +36,7 @@ export default class customerRepository {
             count = count[0]['COUNT(*)'];
             return { records, count };
         } catch (error) {
-            console.log(error);
+            console.log("hello", error);
             throw error;
         }
 

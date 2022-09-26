@@ -36,59 +36,36 @@ export default class reservation {
        * @apiSuccess {json} data reservation.
        * @apiSuccessExample {json} Success-Response:
        *     HTTP/1.1 200 OK
-            {
-    "records": {
-        "result": [
+        {
+            "records": {
+                "result": [
                     {
-                        "id": 29,
-                        "start": "2021-09-18T15:41:10.000Z",
-                        "finished": "2021-09-23T15:41:10.000Z",
-                        "total": "312.1",
-                        "customer_id": 100,
-                        "firstname": "Liè",
-                        "lastname": "Fursland",
-                        "email": "kfursland2r@trellian.com",
-                        "id_room": 151,
-                        "id_reservation": 99,
-                        "category": "single",
-                        "price": "59e",
-                        "breakfastNumber": 2,
-                        "option": "smoker",
-                        "hostel_id": 29,
-                        "name": "hôtel Letta",
-                        "adress": "008 Arizona Pass",
-                        "zipCode": 75000,
-                        "totalRoomNumber": 51,
-                        "type": "3 étoiles",
-                        "city": "Paris"
-                    },
-                    {
-                        "id": 21,
-                        "start": "2021-09-18T15:41:10.000Z",
-                        "finished": "2021-09-23T15:41:10.000Z",
-                        "total": "312.1",
-                        "customer_id": 100,
-                        "firstname": "Liè",
-                        "lastname": "Fursland",
-                        "email": "kfursland2r@trellian.com",
-                        "id_room": 44,
-                        "id_reservation": 99,
-                        "category": "single",
-                        "price": "59e",
-                        "breakfastNumber": 2,
-                        "option": "smoker",
-                        "hostel_id": 21,
-                        "name": "hôtel Dyane",
-                        "adress": "9166 Cambridge Drive",
+                        "id": 1,
+                        "start": "2022-02-06T17:58:47.000Z",
+                        "finished": "2022-02-08T17:58:47.000Z",
+                        "total": "109.4",
+                        "customer_id": 9,
+                        "firstname": "Béatrice",
+                        "lastname": "Titman",
+                        "email": "ftitman8@fda.gov",
+                        "id_room": 315,
+                        "id_reservation": 12,
+                        "category": "double",
+                        "price": "69e",
+                        "breakfastNumber": 1,
+                        "option": "strongBox",
+                        "hostel_id": 1,
+                        "name": "hôtel Clea",
+                        "adress": "3 Sunfield Place",
                         "zipCode": 29200,
-                        "totalRoomNumber": 37,
+                        "totalRoomNumber": 57,
                         "type": "4 étoiles",
                         "city": "Brest"
                     }
                 ],
-                "count": 2
+                "count": 1
             },
-            "nbRecords": 2,
+            "nbRecords": 1,
             "page": {
                 "current": 1,
                 "previous": null,
